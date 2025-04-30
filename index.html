@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9288770962100185"
+    crossorigin="anonymous"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Generate random numbers, pick names, create strong passwords, HEX color codes, and inspiring quotes – a multi-functional random tool for productivity, creativity, and entertainment. Fully mobile-optimized and easy to use."/>
+  <meta name="naver-site-verification" content="b366dbb6459aafa1c91f8f26b783724b86199d71" />
+  <title>Random Tool Hub – Generator Toolkit</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fff;
+      color: #111;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #000;
+      color: #fff;
+      padding: 1rem;
+      text-align: center;
+    }
+    main {
+      max-width: 800px;
+      margin: auto;
+      padding: 1rem;
+    }
+    section {
+      margin-bottom: 2rem;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 1.5rem;
+    }
+    h2 {
+      margin-top: 1.5rem;
+    }
+    input, textarea, select {
+      padding: 0.5rem;
+      margin: 0.5rem 0;
+      width: 100%;
+      box-sizing: border-box;
+      font-size: 1rem;
+    }
+    button {
+      padding: 0.6rem 1.2rem;
+      background: #000;
+      color: #fff;
+      border: none;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-top: 0.5rem;
+    }
+    button:hover {
+      background: #444;
+    }
+    #color-preview {
+      width: 100%;
+      height: 50px;
+      border: 1px solid #ccc;
+      margin-top: 0.5rem;
+    }
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      padding: 1rem;
+      background: #f9f9f9;
+      border-top: 1px solid #ccc;
+    }
+
+    @media (max-width: 600px) {
+      button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Random Tool Hub</h1>
+  <p>Generate, pick, create – All your random needs in one place.</p>
+</header>
+
+<main>
+
+  <!-- 1. Random Number Generator -->
+  <section>
+    <h2>🔢 Random Number Generator</h2>
+    <label>From: <input type="number" id="numFrom" value="1"></label>
+    <label>To: <input type="number" id="numTo" value="100"></label>
+    <button onclick="generateNumber()">Generate</button>
+    <p id="numResult"></p>
+  </section>
+
+  <!-- 2. Random Name Picker -->
+  <section>
+    <h2>🎉 Random Name Picker</h2>
+    <textarea id="names" placeholder="Enter names, one per line"></textarea>
+    <button onclick="pickName()">Pick a Name</button>
+    <p id="nameResult"></p>
+  </section>
+
+  <!-- 3. Password Generator -->
+  <section>
+    <h2>🔐 Password Generator</h2>
+    <label>Password Length: <input type="number" id="passLength" value="12"></label>
+    <button onclick="generatePassword()">Generate Password</button>
+    <p id="passResult"></p>
+  </section>
+
+  <!-- 4. Random Color Generator -->
+  <section>
+    <h2>🎨 Random HEX Color Generator</h2>
+    <button onclick="generateColor()">Generate Color</button>
+    <p id="colorCode"></p>
+    <div id="color-preview"></div>
+  </section>
+
+  <!-- 5. Random Quote / Poem Generator -->
+  <section>
+    <h2>💬 Random Quote or Poem</h2>
+    <button onclick="generateQuote()">Inspire Me</button>
+    <p id="quoteResult" style="font-style: italic;"></p>
+  </section>
+
+</main>
+
+<footer>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9288770962100185"
+    crossorigin="anonymous"></script>
+    <ins class="adsbygoogle"
+        style="display:block"
+        data-ad-client="ca-pub-9288770962100185"
+        data-ad-slot="6399153707"
+        data-ad-format="auto"
+        data-full-width-responsive="true"></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</footer>
+
+<script>
+  function generateNumber() {
+    const from = parseInt(document.getElementById("numFrom").value);
+    const to = parseInt(document.getElementById("numTo").value);
+    if (isNaN(from) || isNaN(to) || from >= to) {
+      return alert("Please enter valid range.");
+    }
+    const result = Math.floor(Math.random() * (to - from + 1)) + from;
+    document.getElementById("numResult").innerText = "🎯 " + result;
+  }
+
+  function pickName() {
+    const names = document.getElementById("names").value.trim().split(/\n/).filter(n => n);
+    if (names.length < 2) return alert("Enter at least 2 names.");
+    const picked = names[Math.floor(Math.random() * names.length)];
+    document.getElementById("nameResult").innerText = "🎉 Winner: " + picked;
+  }
+
+  function generatePassword() {
+    const length = parseInt(document.getElementById("passLength").value);
+    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*";
+    let pass = "";
+    for (let i = 0; i < length; i++) {
+      pass += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    document.getElementById("passResult").innerText = "🔐 " + pass;
+  }
+
+  function generateColor() {
+    const hex = "#" + Math.floor(Math.random()*16777215).toString(16).padStart(6, '0');
+    document.getElementById("colorCode").innerText = "🎨 HEX: " + hex;
+    document.getElementById("color-preview").style.background = hex;
+  }
+
+  function generateQuote() {
+    const quotes = [
+        "Be yourself; everyone else is already taken.",
+        "Two things are infinite: the universe and human stupidity; and I'm not sure about the universe.",
+        "In three words I can sum up everything I've learned about life: it goes on.",
+        "To be yourself in a world that is constantly trying to make you something else is the greatest accomplishment.",
+        "Do not go where the path may lead, go instead where there is no path and leave a trail.",
+        "Don't cry because it's over, smile because it happened.",
+        "You only live once, but if you do it right, once is enough.",
+        "Life is what happens when you're busy making other plans.",
+        "In the end, we will remember not the words of our enemies, but the silence of our friends.",
+        "It is never too late to be what you might have been.",
+        "That which does not kill us makes us stronger.",
+        "Everything you can imagine is real.",
+        "You miss 100% of the shots you don’t take.",
+        "Life isn't about waiting for the storm to pass, it's about learning how to dance in the rain.",
+        "Do what you can, with what you have, where you are.",
+        "The only way to do great work is to love what you do.",
+        "Life is 10% what happens to us and 90% how we react to it.",
+        "To be great is to be misunderstood.",
+        "Our lives begin to end the day we become silent about things that matter.",
+        "The only limit to our realization of tomorrow is our doubts of today.",
+        "Success is not final, failure is not fatal: It is the courage to continue that counts.",
+        "The best way to predict your future is to create it.",
+        "The purpose of life is not to be happy. It is to be useful, to be honorable, to be compassionate, to have it make some difference that you have lived and lived well.",
+        "It does not matter how slowly you go as long as you do not stop.",
+        "You must be the change you wish to see in the world.",
+        "Success usually comes to those who are too busy to be looking for it.",
+        "Hardships often prepare ordinary people for an extraordinary destiny.",
+        "It always seems impossible until it’s done.",
+        "Live as if you were to die tomorrow. Learn as if you were to live forever.",
+        "The only way to have a friend is to be one.",
+        "The future belongs to those who believe in the beauty of their dreams.",
+        "It always seems impossible until it’s done.",
+        "The journey of a thousand miles begins with one step.",
+        "A friend is someone who knows all about you and still loves you.",
+        "Everything has beauty, but not everyone sees it.",
+        "The only thing we have to fear is fear itself.",
+        "Success is not the key to happiness. Happiness is the key to success.",
+        "What lies behind us and what lies before us are tiny matters compared to what lies within us.",
+        "The only impossible journey is the one you never begin.",
+        "Believe you can and you're halfway there.",
+        "The mind is everything. What you think you become.",
+        "To love and be loved is to feel the sun from both sides.",
+        "I have not failed. I've just found 10,000 ways that won't work.",
+        "You can never cross the ocean until you have the courage to lose sight of the shore.",
+        "The best way out is always through.",
+        "If you want to go fast, go alone. If you want to go far, go together.",
+        "You are never too old to set another goal or to dream a new dream.",
+        "Don’t watch the clock; do what it does. Keep going.",
+        "The only thing that stands between you and your goal is the story you keep telling yourself.",
+        "The difference between who you are and who you want to be is what you do.",
+        "The best time to plant a tree was 20 years ago. The second best time is now.",
+        "A journey of a thousand miles must begin with a single step.",
+        "What you get by achieving your goals is not as important as what you become by achieving your goals.",
+        "You can never plan the future by the past.",
+        "A person who never made a mistake never tried anything new.",
+        "Happiness depends upon ourselves.",
+        "He who has a why to live can bear almost any how.",
+        "The best revenge is massive success.",
+        "Don't judge each day by the harvest you reap but by the seeds that you plant.",
+        "Opportunities don't happen, you create them.",
+        "The only way to have a good day is to start it with a positive attitude.",
+        "Be yourself; everyone else is already taken.",
+        "In the middle of every difficulty lies opportunity.",
+        "Nothing in life is to be feared, it is only to be understood.",
+        "Do what you love, and you’ll never work another day in your life.",
+        "Life is either a daring adventure or nothing at all.",
+        "The best is yet to come.",
+        "Nothing will work unless you do.",
+        "Good things come to those who wait, but better things come to those who go out and get them.",
+        "We do not remember days, we remember moments.",
+        "The harder you work for something, the greater you’ll feel when you achieve it.",
+        "Dream big and dare to fail.",
+        "Start where you are. Use what you have. Do what you can.",
+        "The only way to achieve the impossible is to believe it is possible.",
+        "Success is how high you bounce when you hit bottom.",
+        "Nothing is impossible, the word itself says ‘I’m possible!’",
+        "If you can dream it, you can do it.",
+        "To be happy, we must not be too concerned with others.",
+        "The only thing you can control is your effort.",
+        "It’s not the years in your life that count. It’s the life in your years.",
+        "You are enough just as you are.",
+        "Fall seven times, stand up eight.",
+        "You are capable of more than you know.",
+        "Dream as if you'll live forever. Live as if you'll die today.",
+        "Be the change that you wish to see in the world.",
+        "It always seems impossible until it’s done.",
+        "Love the life you live. Live the life you love.",
+        "Don’t limit your challenges. Challenge your limits.",
+        "Don’t stop when you’re tired. Stop when you’re done.",
+        "Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle.",
+        "You are the average of the five people you spend the most time with.",
+        "Success is not in what you have, but who you are.",
+        "A person who never made a mistake never tried anything new.",
+        "Life is what we make it, always has been, always will be.",
+        "The secret of getting ahead is getting started.",
+        "Keep your face always toward the sunshine—and shadows will fall behind you.",
+        "Do not dwell in the past, do not dream of the future, concentrate the mind on the present moment.",
+        "Be the change that you wish to see in the world.",
+        "Every moment is a fresh beginning.",
+        "The time is always right to do what is right."
+        ];
+
+    const random = quotes[Math.floor(Math.random() * quotes.length)];
+    document.getElementById("quoteResult").innerText = random;
+  }
+</script>
+
+</body>
+</html>
